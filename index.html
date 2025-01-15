@@ -41,14 +41,15 @@
         window.location = fallbackUrl;
       }, 2000);
     }
+     redirectToApp();
 
     // Redirect Logic
-    if (isAndroid || isIOS) {
-      redirectToApp();
-    } else {
+  //  if (isAndroid || isIOS) {
+    //  redirectToApp();
+   // } else {
       // Desktop or unsupported platform
-      document.body.innerHTML = `<p>This link is designed for mobile devices. Please visit the Play Store or App Store to download the mobile app.</p>`;
-    }
+    //  document.body.innerHTML = `<p>This link is designed for mobile devices. Please visit the Play Store or App Store to download the app.</p>`;
+   // }
   </script>
 </body>
 </html>
