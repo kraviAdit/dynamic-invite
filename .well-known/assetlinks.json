@@ -1,1 +1,9 @@
-
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "adit_android_app",
+    "package_name": "com.adit.app",
+    "sha256_cert_fingerprints":
+    ["C6:55:65:EB:59:B2:EC:59:45:B0:EE:1B:85:0B:67:C9:0B:B4:F6:D2:F4:94:FB:B7:EC:7F:D7:8F:0B:9B:BD:A1"]
+  }
+}]
