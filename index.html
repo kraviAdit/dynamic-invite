@@ -17,7 +17,7 @@
 
     // Get URL Parameters
     const urlParams = new URLSearchParams(window.location.search);
-    const referralCode = urlParams.get("invite");
+    const referralCode = urlParams.get("referral");
 
     // Detect User Agent
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -37,9 +37,9 @@
       window.location = deepLink;
 
       // Fallback after 2 seconds if the app is not installed
-      //setTimeout(() => {
-      //  window.location = fallbackUrl;
-      //}, 2000);
+      setTimeout(() => {
+        window.location = fallbackUrl;
+      }, 2000);
     }
 
     // Redirect Logic
@@ -47,7 +47,7 @@
       redirectToApp();
     } else {
       // Desktop or unsupported platform
-      document.body.innerHTML = `<p>This link is designed for mobile devices. Please visit the Play Store or App Store to download the app.</p>`;
+      document.body.innerHTML = `<p>This link is designed for mobile devices. Please visit the Play Store or App Store to download the mobile app.</p>`;
     }
   </script>
 </body>
