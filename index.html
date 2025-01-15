@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deferred Deep Link</title>
+</head>
+<body>
+  <h1>Redirecting...</h1>
+  <script>
+    // Configuration
+    const androidAppPackage = "com.adit.app";
+    const iosAppId = "id1565902948"; // Replace with your iOS App ID
+    const androidPlayStoreUrl = `https://play.google.com/store/apps/details?id=${androidAppPackage}`;
+    const iosAppStoreUrl = `https://apps.apple.com/app/id${iosAppId}`;
+    const deepLinkBase = "aditapp://"; // Replace with your app's custom URL scheme
+
+    // Get URL Parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const referralCode = urlParams.get("invite");
+
+    // Detect User Agent
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const isAndroid = /android/i.test(userAgent);
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+
+    // Construct Deep Link
+    const deepLink = `${deepLinkBase}?referral=${encodeURIComponent(referralCode || "")}`;
+
+   
+
+    // Check if App is Installed
+    function redirectToApp() {
+      const fallbackUrl = isAndroid ? androidPlayStoreUrl : isIOS ? iosAppStoreUrl : "/";
+
+      // Try to open the app
+      window.location = deepLink;
+
+      // Fallback after 2 seconds if the app is not installed
+      setTimeout(() => {
+        window.location = fallbackUrl;
+      }, 2000);
+    }
+
+    // Redirect Logic
+    if (isAndroid || isIOS) {
+      redirectToApp();
+    } else {
+      // Desktop or unsupported platform
+      document.body.innerHTML = `<p>This link is designed for mobile devices. Please visit the Play Store or App Store to download the app.</p>`;
+    }
+  </script>
+</body>
+</html>
