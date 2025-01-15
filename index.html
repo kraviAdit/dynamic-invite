@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Invite</title>
+  <title>Invite</title>
 </head>
 <body>
-  <h1>Redirecting...</h1>
+  <h1>Redirecting to app...</h1>
   <script>
     // Configuration
     const androidAppPackage = "com.adit.app";
@@ -41,15 +41,14 @@
         window.location = fallbackUrl;
       }, 2000);
     }
-     redirectToApp();
 
     // Redirect Logic
-  //  if (isAndroid || isIOS) {
-    //  redirectToApp();
-   // } else {
+    if (isAndroid || isIOS) {
+      redirectToApp();
+    } else {
       // Desktop or unsupported platform
-    //  document.body.innerHTML = `<p>This link is designed for mobile devices. Please visit the Play Store or App Store to download the app.</p>`;
-   // }
+      document.body.innerHTML = `<p>This link is designed for mobile devices. Please visit the Play Store or App Store to download the app.</p>`;
+    }
   </script>
 </body>
 </html>
