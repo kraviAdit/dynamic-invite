@@ -25,9 +25,9 @@
     const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
 
     // Construct Deep Link
-    const deepLink = `${deepLinkBase}?referral=${encodeURIComponent(referralCode || "")}`;
+    //const deepLink = `${deepLinkBase}?referral=${encodeURIComponent(referralCode || "")}`;
 
-   
+    const deepLink deepLink = "aditapp://referral"
 
     // Check if App is Installed
     function redirectToApp() {
