@@ -28,7 +28,7 @@
     // Construct Deep Link
     const deepLinkAndroid = `${deepLinkBase}?${encodeURIComponent(referralCode || "")}`;
 
-    const deepLinkiOS = `${deepLinkBase}code=?${encodeURIComponent(referralCode || "")}`;
+    const deepLinkiOS = `${deepLinkBase}?code=${encodeURIComponent(referralCode || "")}`;
     //const deepLink = "aditapp://referral?ravi"
 
     // Check if App is Installed
