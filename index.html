@@ -24,9 +24,11 @@
     const isAndroid = /android/i.test(userAgent);
     const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
 
+     
     // Construct Deep Link
-    const deepLink = `${deepLinkBase}?${encodeURIComponent(referralCode || "")}`;
+    const deepLinkAndroid = `${deepLinkBase}?${encodeURIComponent(referralCode || "")}`;
 
+    const deepLinkiOS = `${deepLinkBase}code=?${encodeURIComponent(referralCode || "")}`;
     //const deepLink = "aditapp://referral?ravi"
 
     // Check if App is Installed
@@ -34,7 +36,7 @@
       const fallbackUrl = isAndroid ? androidPlayStoreUrl : isIOS ? iosAppStoreUrl : "/";
 
       // Try to open the app
-      window.location = deepLink;
+      window.location = isAndroid ?deepLinkAndroid:deepLinkiOS;
 
       // Fallback after 2 seconds if the app is not installed
       setTimeout(() => {
