@@ -16,8 +16,8 @@
     const deepLinkBase = "aditapp://"; // Replace with your app's custom URL scheme
 
     // Get URL Parameters
-    //const urlParams = new URLSearchParams(window.location.search);
-   // const referralCode = urlParams.get("referral");
+    const urlParams = new URLSearchParams(window.location.search);
+    const referralCode = urlParams.get("code");
 
     // Detect User Agent
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -25,9 +25,9 @@
     const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
 
     // Construct Deep Link
-    //const deepLink = `${deepLinkBase}?referral=${encodeURIComponent(referralCode || "")}`;
+    const deepLink = `${deepLinkBase}?referral=${encodeURIComponent(referralCode || "")}`;
 
-    const deepLink = "aditapp://referral"
+    //const deepLink = "aditapp://referral"
 
     // Check if App is Installed
     function redirectToApp() {
