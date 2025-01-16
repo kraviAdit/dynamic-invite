@@ -13,7 +13,7 @@
     const iosAppId = "id1565902948"; // Replace with your iOS App ID
     const androidPlayStoreUrl = `https://play.google.com/store/apps/details?id=${androidAppPackage}`;
     const iosAppStoreUrl = `https://apps.apple.com/app/id${iosAppId}`;
-    const deepLinkBase = "aditapp://"; // Replace with your app's custom URL scheme
+    const deepLinkBase = "aditapp://referral"; // Replace with your app's custom URL scheme
 
     // Get URL Parameters
     const urlParams = new URLSearchParams(window.location.search);
@@ -25,7 +25,7 @@
     const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
 
     // Construct Deep Link
-    const deepLink = `${deepLinkBase}?referral=${encodeURIComponent(referralCode || "")}`;
+    const deepLink = `${deepLinkBase}?code=${encodeURIComponent(referralCode || "")}`;
 
     //const deepLink = "aditapp://referral"
 
