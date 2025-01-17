@@ -11,10 +11,9 @@
     // Configuration
     const androidAppPackage = "com.adit.app";
     const iosAppId = "1565902948"; // Replace with your iOS App ID
-    const androidPlayStoreUrl = `https://play.google.com/store/apps/details?id=${androidAppPackage}`;
-    const iosAppStoreUrl = `https://apps.apple.com/app/id${iosAppId}`;
     const deepLinkBase = "aditapp://referral"; // Replace with your app's custom URL scheme
 
+    
     // Get URL Parameters
     const urlParams = new URLSearchParams(window.location.search);
     const referralCode = urlParams.get("referral");
@@ -29,6 +28,11 @@
     const deepLinkAndroid = `${deepLinkBase}?${encodeURIComponent(referralCode || "")}`;
 
     const deepLinkiOS = `${deepLinkBase}?code=${encodeURIComponent(referralCode || "")}`;
+   
+   
+    const androidPlayStoreUrl = `https://play.google.com/store/apps/details?id=${androidAppPackage}`;
+    const iosAppStoreUrl = `https://apps.apple.com/app/id${iosAppId}?app-argument=${deepLinkiOS}`;
+  
     //const deepLink = "aditapp://referral?ravi"
 
     // Check if App is Installed
