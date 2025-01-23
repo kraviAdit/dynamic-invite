@@ -11,7 +11,7 @@
     // Configuration
     const androidAppPackage = "com.adit.app";
     const iosAppId = "1565902948"; // Replace with your iOS App ID
-    const deepLinkBase = "aditapp://referral/"; // Replace with your app's custom URL scheme
+    const deepLinkBase = "aditapp://referral?"; // Replace with your app's custom URL scheme
 
     
     // Get URL Parameters
@@ -27,7 +27,7 @@
     // Construct Deep Link
     const deepLinkAndroid = `${deepLinkBase}${encodeURIComponent(referralCode || "")}`;
 
-    const deepLinkiOS = `${deepLinkBase}?code=${encodeURIComponent(referralCode || "")}`;
+    const deepLinkiOS = `${deepLinkBase}code=${encodeURIComponent(referralCode || "")}`;
 
    localStorage.setItem('deferredLink', deepLinkiOS); 
     
