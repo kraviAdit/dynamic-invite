@@ -11,7 +11,7 @@
     // Configuration
     const androidAppPackage = "com.adit.app";
     const iosAppId = "1565902948"; // Replace with your iOS App ID
-    const deepLinkBase = "aditapp://referral?"; // Replace with your app's custom URL scheme
+    const deepLinkBase = "aditapp://referral/"; // Replace with your app's custom URL scheme
 
     
     // Get URL Parameters
@@ -32,7 +32,7 @@
    localStorage.setItem('deferredLink', deepLinkiOS); 
     
    
-    const deepLink = "aditapp://referral?ravi"
+    //const deepLink = "aditapp://referral?ravi"
     const androidPlayStoreUrl = `https://play.google.com/store/apps/details?id=${androidAppPackage}&referrer=${encodeURIComponent(referralCode || "")}`;
     //const iosAppStoreUrl = `https://apps.apple.com/app/id${iosAppId}?app-argument=${deepLink}&referrer=${encodeURIComponent(referralCode || "")}`;
     const iosAppStoreUrl = `https://apps.apple.com/app/id${iosAppId}?referrer=${encodeURIComponent(referralCode || "")}`;
@@ -43,7 +43,7 @@
       const fallbackUrl = isAndroid ? androidPlayStoreUrl : isIOS ? iosAppStoreUrl : "/";
 
       // Try to open the app
-      window.location = isAndroid ?deepLink:deepLinkiOS;
+      window.location = isAndroid ?deepLinkAndroid:deepLinkiOS;
 
       // Fallback after 2 seconds if the app is not installed
       setTimeout(() => {
