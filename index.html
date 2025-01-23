@@ -43,7 +43,7 @@
       const fallbackUrl = isAndroid ? androidPlayStoreUrl : isIOS ? iosAppStoreUrl : "/";
 
       // Try to open the app
-      window.location = isAndroid ?deepLinkAndroid:deepLinkiOS;
+      window.location = isAndroid ?deepLink:deepLinkiOS;
 
       // Fallback after 2 seconds if the app is not installed
       setTimeout(() => {
