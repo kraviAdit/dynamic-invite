@@ -33,11 +33,9 @@
     
    
     //const deepLink = "aditapp://referral?ravi"
-    const androidPlayStoreUrl = `https://play.google.com/store/apps/details?id=${androidAppPackage}&referrer=${encodeURIComponent(referralCode || "")}`;
-    //const iosAppStoreUrl = `https://apps.apple.com/app/id${iosAppId}?app-argument=${deepLink}&referrer=${encodeURIComponent(referralCode || "")}`;
-    const iosAppStoreUrl = `https://apps.apple.com/app/id${iosAppId}?referrer=${encodeURIComponent(referralCode || "")}`;
-    //const deepLink = "aditapp://referral?ravi"
-
+    const androidPlayStoreUrl = `https://play.google.com/store/apps/details?id=${androidAppPackage}&referrer=code=${encodeURIComponent(referralCode || "")}`;
+    const iosAppStoreUrl = `https://apps.apple.com/app/id${iosAppId}?referrer=code=${encodeURIComponent(referralCode || "")}`;
+   
     // Check if App is Installed
     function redirectToApp() {
       const fallbackUrl = isAndroid ? androidPlayStoreUrl : isIOS ? iosAppStoreUrl : "/";
