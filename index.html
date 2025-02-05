@@ -37,7 +37,7 @@
         }
 
     
-     
+      
     //const deepLink = "aditapp://referral?ravi"
      const androidPlayStoreUrl = `https://play.google.com/store/apps/details?id=${androidAppPackage}&referrer=code=${encodeURIComponent(referralCode || "")}`;
      const iosAppStoreUrl = `https://apps.apple.com/app/id${iosAppId}?referrer=code=${encodeURIComponent(referralCode || "")}`;
@@ -45,10 +45,10 @@
     // Check if App is Installed
     function redirectToApp() {
       const fallbackUrl = isAndroid ? androidPlayStoreUrl : isIOS ? iosAppStoreUrl : "/";
-      //storeDeepLink()
       // Try to open the app
       window.location = isAndroid ?deepLinkAndroid:deepLinkiOS;
-
+      storeDeepLink();
+    
       // Fallback after 2 seconds if the app is not installed
       setTimeout(() => {
         window.location = fallbackUrl;
