@@ -4,8 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Invite</title>
+  <script>
+        function storeDeepLink() {
+            const deepLinkURL = window.location.href;
+            if (window.localStorage) {
+                localStorage.setItem('DeferredDeepLinkURL', deepLinkURL);
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="storeDeepLink()">
   <h1>Redirecting to app...</h1>
   <script>
     // Configuration
@@ -29,13 +37,6 @@
 
     const deepLinkiOS = `${deepLinkBase}code=${encodeURIComponent(referralCode || "")}`;
     
-     function storeDeepLink() {
-            //const deepLinkURL = window.location.href;
-            if (window.localStorage) {
-                localStorage.setItem('DeferredDeepLinkURL', "ravi");
-            }
-        }
-
     
       
     //const deepLink = "aditapp://referral?ravi"
@@ -46,9 +47,7 @@
     function redirectToApp() {
       const fallbackUrl = isAndroid ? androidPlayStoreUrl : isIOS ? iosAppStoreUrl : "/";
       // Try to open the app
-      window.location = isAndroid ?deepLinkAndroid:deepLinkiOS;
-      storeDeepLink();
-    
+      window.location = isAndroid ?deepLinkAndroid:deepLinkiOS;    
       // Fallback after 2 seconds if the app is not installed
       setTimeout(() => {
         window.location = fallbackUrl;
