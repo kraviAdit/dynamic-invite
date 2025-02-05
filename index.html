@@ -46,7 +46,7 @@
             };
             localStorage.setItem('savedData', JSON.stringify(data));
             alert('Data saved to local storage');
-            //displayData();
+        
             const savedData = localStorage.getItem('savedData');
             if (savedData) {
                 const data = JSON.parse(savedData);
@@ -54,7 +54,7 @@
                 alert('Message: ${data.message}\nTimestamp: ${data.timestamp}');
             } else {
                 document.getElementById('output').innerText = 'No data found';
-                 alert('No data found');
+               alert('No data found');
             }
             
         }
