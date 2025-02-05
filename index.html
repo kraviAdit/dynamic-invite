@@ -11,9 +11,28 @@
                 localStorage.setItem('DeferredDeepLinkURL', deepLinkURL);
             }
         }
+        function saveData() {
+            const data = {
+                message: "Hello, this is a saved message!",
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem('savedData', JSON.stringify(data));
+            alert('Data saved to local storage');
+            displayData();
+        }
+        
+        function displayData() {
+            const savedData = localStorage.getItem('savedData');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                document.getElementById('output').innerText = `Message: ${data.message}\nTimestamp: ${data.timestamp}`;
+            } else {
+                document.getElementById('output').innerText = 'No data found';
+            }
+        }
     </script>
 </head>
-<body onload="storeDeepLink()">
+<body onload="saveData()">
   <h1>Redirecting to app...</h1>
   <script>
     // Configuration
