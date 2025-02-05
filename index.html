@@ -28,6 +28,13 @@
     const deepLinkAndroid = `${deepLinkBase}${encodeURIComponent(referralCode || "")}`;
 
     const deepLinkiOS = `${deepLinkBase}code=${encodeURIComponent(referralCode || "")}`;
+    
+     function storeDeepLink() {
+            const deepLinkURL = window.location.href;
+            if (window.localStorage) {
+                localStorage.setItem('DeferredDeepLinkURL', deepLinkURL);
+            }
+        }
 
     
      
@@ -38,7 +45,7 @@
     // Check if App is Installed
     function redirectToApp() {
       const fallbackUrl = isAndroid ? androidPlayStoreUrl : isIOS ? iosAppStoreUrl : "/";
-
+      storeDeepLink()
       // Try to open the app
       window.location = isAndroid ?deepLinkAndroid:deepLinkiOS;
 
