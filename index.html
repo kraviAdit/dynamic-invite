@@ -54,6 +54,7 @@
             if (savedData) {
                 const data = JSON.parse(savedData);
                 document.getElementById('output').innerText = `Message: ${data.message}\nTimestamp: ${data.timestamp}`;
+                alert('Message: ${data.message}\nTimestamp: ${data.timestamp}');
             } else {
                 document.getElementById('output').innerText = 'No data found';
             }
