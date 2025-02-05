@@ -4,19 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Invite</title>
-  <script>
-        function storeDeepLink() {
-            const deepLinkURL = window.location.href;
-            if (window.localStorage) {
-                localStorage.setItem('DeferredDeepLinkURL', deepLinkURL);
-            }
-        }
-        
-    </script>
-</head>
+ </head>
 <body>
   <h1>Redirecting to app...</h1>
-   <div id="output"></div>
+  
   <script>
     // Configuration
     const androidAppPackage = "com.adit.app";
@@ -48,7 +39,7 @@
     function redirectToApp() {
       const fallbackUrl = isAndroid ? androidPlayStoreUrl : isIOS ? iosAppStoreUrl : "/";
       // Try to open the app
-      //window.location = isAndroid ?deepLinkAndroid:deepLinkiOS;    
+      window.location = isAndroid ?deepLinkAndroid:deepLinkiOS;    
       // Fallback after 2 seconds if the app is not installed
       setTimeout(() => {
         window.location = fallbackUrl;
